@@ -1,0 +1,126 @@
+.main {
+  display: flex;
+  background-image: url(../../assets/circles_background.png);
+  background-repeat: no-repeat;
+  background-size:contain;
+}
+
+.main__places {
+  padding-bottom: 500px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.main__main-title {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main__places-title {
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.main__stripe {
+  height: 2px;
+  background-color: rgb(63, 70, 58);
+  width: 200px;
+  border-radius: 20px;
+
+}
+.main__main-subtitles{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+.main__places-subtitle{
+  padding: 10px;
+  font-size: 1.5em;
+  font-weight: 50;
+}
+#favorites{
+  color: #979696;
+}
+.main__card-places {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 100px;
+  margin: auto;
+  width: 80%;
+  max-width: 2000px;
+}
+
+.main__card {
+  justify-self: stretch;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  padding: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 15px 16px 30px 1px #979696;
+}
+
+.main__card-title {
+  font-size: 1.7em;
+  font-weight: 400;
+  padding: 30px;
+}
+
+.main__card-paragraph {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.main__card-places__contBtns {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.main__card-btn {
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+  margin-top: 50px;
+  margin-bottom: 80px;
+  color: white;
+  background-color: rgb(86, 172, 125);
+  height: 40px;
+  width: 150px;
+  user-select: none;
+}
+
+.main__card-btn-2 {
+  text-align: center;
+  border-radius: 5px;
+  border: solid 2px rgb(102, 187, 162);
+  margin-top: 50px;
+  margin-bottom: 80px;
+  color: rgb(102, 187, 162);
+  background-color: rgb(255, 255, 255);
+  height: 40px;
+  width: 150px;
+  user-select: none;
+}
+
+.main__card-btn:hover {
+  cursor: pointer;
+  background-color: rgb(22, 41, 34);
+
+}
+.main__card-btn-2:hover{
+  cursor: pointer;
+  background-color:rgb(22, 41, 34) ;
+  color: white;
+  border: none;
+}
