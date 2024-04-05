@@ -1,12 +1,21 @@
+.cont__modal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 100;
+}
 .main__modal {
-    display: none;
-    margin:200px auto;
+    display: flex;
+    margin-top: 50px;;
+    
+    left: 0;
     padding-bottom: 100px;
     width: 80%;
     flex-direction: column;
     box-shadow: 15px 16px 30px 1px #979696;
     background-color: white;
-    position:static;
+    position:relative;
 }
 
 .main__modal-title {
@@ -17,7 +26,7 @@
     font-weight: bold;
 }
 
-.close {
+.closeModal {
     margin: 5px 5px;
     padding: 0;
     display: flex;
@@ -53,11 +62,11 @@
 
 }
 
-.close:hover,
-.close:focus {
+.closeModal:hover,
+.closeModal:focus {
     text-decoration: none;
     transform: none;
-    border: solid 1px black;
+    border:  black;
     border-radius: 3px;
     color: white;
     cursor: pointer;
