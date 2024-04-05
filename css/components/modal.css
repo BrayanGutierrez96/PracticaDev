@@ -1,66 +1,79 @@
+.main__modal-container {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: var(--z-index-max);
+}
+
 .main__modal {
-    display: none;
-    margin:200px auto;
-    padding-bottom: 100px;
-    width: 80%;
-    flex-direction: column;
-    box-shadow: 15px 16px 30px 1px #979696;
-    background-color: white;
-    position:static;
+  display: flex;
+  padding-bottom: 100px;
+  width: 80%;
+  flex-direction: column;
+  box-shadow: 10px 10px 25px 15px rgb(231, 231, 231, 0.7);
+  background-color: white;
 }
 
 .main__modal-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2em;
-    font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  font-weight: bold;
 }
 
 .close {
-    margin: 5px 5px;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #979696;
-    width: 20px;
-    user-select: none;
-    transition: 0.2s;
-
+  margin: 5px 5px;
+  border: 1px solid transparent;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #979696;
+  width: 20px;
+  user-select: none;
+  transition: 0.2s;
 }
 
 .main__modal-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 55px;
-    margin-bottom: 55px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 55px;
+  margin-bottom: 55px;
 }
 
 .main__modal-img-container {
-    display: flex;
-    justify-content: center;
-    margin-right: 50px;
-    width: 1100px;
-    max-width: 1100px;
-    min-width: 500px;
+  display: flex;
+  justify-content: center;
+  margin-right: 50px;
+  width: 1100px;
+  max-width: 1100px;
+  min-width: 500px;
 }
 
 .img {
-    width: 100%;
-    margin: auto;
-
+  width: 100%;
+  margin: auto;
 }
 
 .close:hover,
 .close:focus {
-    text-decoration: none;
-    transform: none;
-    border: solid 1px black;
-    border-radius: 3px;
-    color: white;
-    cursor: pointer;
-    background-color: rgb(75, 74, 74);
+  text-decoration: none;
+  transform: none;
+  border: 1px solid black;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  background-color: rgb(75, 74, 74);
+}
 
+.modal-open {
+  overflow-y: hidden;
 }

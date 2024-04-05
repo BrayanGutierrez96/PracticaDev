@@ -1,85 +1,63 @@
-import { places } from './data.js'
+import { places } from "./data.js";
 
-const newCard = document.getElementById("article-card");
-const modal = document.getElementById('modal');
-const mainTitle = document.getElementById('main__placess')
-const headers = document.getElementById('headshot')
-const close = document.getElementById('close')
+const cardList = document.querySelector("#card-list");
+const modal = document.getElementById("modal");
+const close = document.getElementById("close");
+
+function clickVisitPlace(e, img, title, desc) {
+  if (e.target.classList.contains("main__card-btn")) {
+    modal.querySelector(".main__card-title").innerHTML = title
+    modal.querySelector(".img").src = img
+    modal.querySelector(".main__card-paragraph").innerHTML = desc
+    modal.style.display = "flex";
+    document.body.classList.add("modal-open");
+  }
+}
+
+function closeModal(e) {
+  if (e.target) {
+    modal.style.display = "none";
+    document.body.classList.remove("modal-open");
+  }
+}
 
 function addCard() {
-    for (let i = 0; i < places.length; i++) {
+  for (let i = 0; i < places.length; i++) {
+    const currentHtml = cardList.innerHTML;
 
-        const place = document.createElement('article');
-        place.classList.add('main__card');
-        newCard.appendChild(place);
+    const card = `
+    <article class="main__card">
+    <div class="main__card-img-container">
+      <img class="main__card-img" src=${places[i].image} />
+    </div>
+    <h3 class="main__card-title">${places[i].title}</h3>
+    <p class="main__card-paragraph">
+      ${places[i].description}
+    </p>
+    <div class="main__card-places__contBtns">
+      <button class="main__card-btn" type="button">Visit place</button
+      ><button class="main__card-btn-2" type="button">
+        Add to favorites
+      </button>
+    </div>
+  </article>`;
 
-        const divImg = document.createElement('div');
-        divImg.classList.add('main__card-img-container');
-        place.appendChild(divImg);
-
-        const img = document.createElement('img');
-        img.classList.add('main__card-img');
-        img.src = places[i].image;
-        divImg.appendChild(img);
-
-        const titleCard = document.createElement('h3');
-        titleCard.classList.add('main__card-title');
-        titleCard.textContent = places[i].title;
-        place.appendChild(titleCard);
-
-        const text = document.createElement('p');
-        text.classList.add('main__card-paragraph');
-        text.textContent = places[i].description;
-        place.appendChild(text);
-
-        const contBtns = document.createElement('div');
-        contBtns.classList.add('main__card-places__contBtns');
-        place.appendChild(contBtns);
-
-        const btn = document.createElement('button');
-        btn.classList.add('main__card-btn');
-        btn.type = "button";
-        btn.textContent = "Visit place";
-        contBtns.appendChild(btn);
-
-        const addFavorites = document.createElement('button');
-        addFavorites.classList.add('main__card-btn-2');
-        addFavorites.type = "button";
-        addFavorites.textContent = "Add to favorites";
-        contBtns.appendChild(addFavorites);
-    }
-};
-
-function clickVisitPlace() {
-
-    newCard.addEventListener('click', (e) => {
-        if (e.target.classList.contains('main__card-btn')) {
-            modal.style.display = 'flex';
-            mainTitle.style.display = 'none';
-            headers.style.display = 'none'
-            document.body.style.backgroundColor = 'rgba(63, 70, 58, 0.7)'
-            console.log('hola')
-        } else {
-            console.log('chao')
-        }
-    })
+    cardList.innerHTML = currentHtml + card;
+  }
 }
 
+function addListeners() {
+  const cardsVisitButtons = document.querySelectorAll(".main__card-btn");
 
-
-function closeModal() {
-    close.addEventListener('click', (e) => {
-        if (e.target) {
-            modal.style.display = 'none';
-            mainTitle.style.display = 'flex';
-            headers.style.display = '';
-            document.body.style.backgroundColor = '';
-            console.log('como estas')
-        } else {
-            console.log('bien y tu')
-        }
-    })
+  cardsVisitButtons.forEach((element, index) => {
+    element.addEventListener("click", (e) => {
+      const { image, title, description } = places[index];
+      clickVisitPlace(e, image, title, description);
+    });
+  });
 }
-export { closeModal };
+
+close.addEventListener("click", closeModal);
+
 export { addCard };
-export { clickVisitPlace }
+export { addListeners };
